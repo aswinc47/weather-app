@@ -8,7 +8,7 @@ function displayData(){
   .then((json) =>{
     getData(json)
   }   
-  ).catch((e)=>citydisp.innerText = "Invalid city");
+  ).catch((e)=> invalid() );
 }
 
 function getData(json){
@@ -51,6 +51,27 @@ function getData(json){
 
 function setDisp(id,value){
   document.getElementById(`${id}`).innerText = value
+}
+
+function invalid(){
+  citydisp.innerText = "Invalid city"
+  weatherdisp.innerText = "--"
+  longdisp.innerText = "--"
+  latdisp.innerText = "--"
+  visdisp.innerText = "--"
+  tempmain1.innerText = "--"
+  tempmain.innerText = "--"
+  mintempdisp.innerText = "--"
+  maxtempdisp.innerText = "--"
+  wspeeddisp.innerText = "--"
+  wdegdisp.innerText = "--"
+  pressuredisp.innerText = "--"
+  humiditydisp.innerText = "--"
+
+  pressuremob.innerText = "--"
+  humiditymob.innerText = "--"
+  windmob.innerText = "--"
+  visimob.innerText = "--" 
 }
 
 function displayImage(weather){
