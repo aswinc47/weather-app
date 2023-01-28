@@ -18,7 +18,7 @@ body{
 }
 
 
-@media (max-width: 600px){
+@media (max-width: 768px){
     .container{
         padding: 0px;
         margin: 0px;
@@ -110,6 +110,12 @@ body{
 
 }
 
+@media (min-width:769px) and  (max-width: 1066px){
+    .container .form-row{
+        height: auto;
+        width: auto;
+    }
+}
 .main{
     backdrop-filter: blur(7px);
     width: 100vw;
