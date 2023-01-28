@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="./images/Clear.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script rc="https://kit.fontawesome.com/7c4f0445b9.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="main d-flex align-items-center flex-column">
+      <div class="input-group align-items-center mt-5">
+        <input type="text"class="form-control" id="citysearch" placeholder="Search City"/>
+        <button type="button"onclick="displayData()" class="btn signup-btn px-4 py-2 mx-2">
+          Search
+        </button>
+      </div>
+      <div class="container mt-lg-5 justify-content-center d-flex flex-column align-items-center">
+        <div class="row form-row align-items-center">
+          
+          <div class="col-md-4 col-sm-12 leftsec text-end">
+            <img src="./images/Clear.png" alt="" class="weatherlogo" id="logo" />
+            <div class="leftsectext">
+              <h1 class="leftsectemp"><span id="tempmain1" >-</span>&#176</h1>
+              <h4 id="citydisp">--</h4>
+              <h3 id="weatherdisp">---</h3>
+            </div>
+          </div>
+
+          <div class="col-md-8 col-sm-12 headings">            
+            <div class="w-card-div d-flex justify-content-between">
+              <div id="longlat" class="w-card m-4">
+                <h5 class="subhead">Co-ordinates</h5>
+                <div class="d-flex justify-content-between align-items-center mt-3"><h6 class="multival-head">Lon.</h6><h5 id="longdisp" class="value-main">--</h5> </div>
+                <div class="d-flex justify-content-between align-items-center mt-2"><h6 class="multival-head">Lat.</h6><h5 id="latdisp" class="value-main">--</h5> </div>
+              </div>
+
+              <div id="visibility" class="w-card m-4">
+                <h5 class="subhead">Visibility</h5>
+                <div class="d-flex justify-content-center mt-4"><h5 class="singlevalmain"><span id="visdisp" class="singleval">-</span> m </h5></div>
+              </div>
+
+              <div id="temperature" class="w-card m-4">
+                <h5 class="subhead">Temperature</h5>
+                <div class="d-flex justify-content-between  align-items-center"><h6 class="multival-head">Temp</h6><h5 class="value-lg"><span id="tempmain" class="value-main">-</span> &#176C</h5> </div>
+                <div class="d-flex justify-content-between align-items-center"><h6 class="multival-head">Min.</h6><h5 class="value-lg"><span id="mintempdisp" class="value-main">-</span> &#176C</h5> </div>
+                <div class="d-flex justify-content-between  align-items-center"><h6 class="multival-head" >Max.</h6><h5 class="value-lg"><span id="maxtempdisp" class="value-main">-</span> &#176C</h5></div>
+              </div>
+
+
+            </div>
+            <div class="w-card-div d-flex justify-content-between">
+              <div id="wind" class="w-card m-4">
+                <h5 class="subhead" >Wind</h5>
+                <div class="d-flex justify-content-between align-items-center mt-3"><h6 class="multival-head">Speed</h6><h5 class="value-lg"><span id="wspeeddisp" class="value-main">-</span>m/s</h5></div>
+                <div class="d-flex justify-content-between align-items-center mt-2"><h6 class="multival-head">deg</h6><h5 class="value-lg"><span id="wdegdisp" class="value-main">-</span> &#176</h5></div>
+              </div>
+              <div id="pressure" class="w-card m-4">
+                <h5 class="subhead" >Pressure</h5>
+                <div class="d-flex justify-content-center mt-4 "><h5 class="singlevalmain"><span id="pressuredisp" class="singleval">-</span> hPa </h5></div>
+              </div>
+              <div id="humidity" class="w-card m-4">
+                <h5 class="subhead" >Humidity</h5>
+                <div class="d-flex justify-content-center mt-4 "><h5 class="singlevalmain"><span id="humiditydisp" class="singleval">-</span> % </h5> </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-12 mt-5 w-100 mobilesec">
+            <ul class="list-group w-100">
+              <li class="list-group-item py-3 d-flex align-items-center justify-content-between"><h5 class="headingmob">Pressure</h5><h4 class="valuegroup"><span class="valuemob" id="pressuremob">-</span> hPa</h4></li>
+              <li class="list-group-item py-3 d-flex align-items-center justify-content-between"><h5 class="headingmob">Humidity</h5><h4 class="valuegroup"><span class="valuemob" id="humiditymob">-</span> %</h4></li>
+              <li class="list-group-item py-3 d-flex align-items-center justify-content-between"><h5 class="headingmob">Wind</h5><h4 class="valuegroup"><span class="valuemob" id="windmob">-</span> m/s</h4></li>
+              <li class="list-group-item py-3 d-flex align-items-center justify-content-between"><h5 class="headingmob">Visibility</h5><h4 class="valuegroup"><span class="valuemob" id="visimob">-</span> m</h4></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
